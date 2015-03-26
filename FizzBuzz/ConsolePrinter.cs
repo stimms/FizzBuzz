@@ -4,15 +4,15 @@ using System.Collections.Generic;
 
 namespace FizzBuzz
 {
-    public class ConsolePrinter : IPrinter
+    public class ConsolePrinter : IWriteBuffer
     {
 
-        public void Print(string toPrint)
+        public void Buffer(string toPrint)
         {
 
             Console.Write(toPrint);
         }
-        public void Done()
+        public void Flush()
         {
             Console.WriteLine();
         }

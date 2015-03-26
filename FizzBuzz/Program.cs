@@ -8,7 +8,7 @@ namespace FizzBuzz
     {
         static void Main(string[] args)
         {
-            IPrinter printer = new ConsolePrinter();
+            IWriteBuffer printer = new ConsolePrinter();
 
             List<Rule> fizBuzzRuleSet = new List<Rule>{
                             new Rule{ Key = 3, Text = "Fizz"},

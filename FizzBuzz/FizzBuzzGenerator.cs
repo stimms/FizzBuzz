@@ -6,7 +6,7 @@ namespace FizzBuzz
 {
     public class FizzBuzzGenerator
     {
-        private readonly IPrinter _printer;
+        private readonly IWriteBuffer _printer;
         private readonly IEnumerable<Rule> _rules;
         public void Generate(int i)
         {
@@ -14,14 +14,14 @@ namespace FizzBuzz
             if (matchingRules.Any())
             {
                 foreach (var rule in matchingRules)
-                    _printer.Print(rule.Execute());
+                    _printer.Buffer(rule.Execute());
             }
             else
-                _printer.Print(i.ToString());
-            _printer.Done();
+                _printer.Buffer(i.ToString());
+            _printer.Flush();
         }
 
-        public FizzBuzzGenerator(IPrinter printer, IEnumerable<Rule> rules)
+        public FizzBuzzGenerator(IWriteBuffer printer, IEnumerable<Rule> rules)
         {
             _rules = rules;
             _printer = printer;

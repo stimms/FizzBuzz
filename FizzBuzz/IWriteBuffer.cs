@@ -4,9 +4,9 @@ using System.Linq;
 
 namespace FizzBuzz
 {
-    public interface IPrinter
+    public interface IWriteBuffer
     {
-        void Print(string toPrint);
-        void Done();
+        void Buffer(string toPrint);
+        void Flush();
     }
 }
